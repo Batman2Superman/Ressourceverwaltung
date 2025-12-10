@@ -18,7 +18,6 @@ flowchart TD
     End([Ende])
 
     Start --> Eingabe --> CheckUser
-
     CheckUser -- Nein --> ErrorUser --> End
     CheckUser -- Ja --> CheckRes
 
@@ -27,5 +26,4 @@ flowchart TD
 
     CheckAvail -- Nein --> ErrorAvail --> End
     CheckAvail -- Ja --> CreateLoan --> UpdateStatus --> Success --> End
-
 ```
