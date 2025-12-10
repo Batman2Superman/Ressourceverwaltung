@@ -1,5 +1,3 @@
-# Aktivitätsdiagramm: Ressource ausleihen
-
 ```mermaid
 flowchart TD
     Start([Start])
@@ -9,14 +7,14 @@ flowchart TD
     CheckRes{Ressource existiert?}
     CheckAvail{Ressource verfügbar?}
 
-    ErrorUser[/Fehlermeldung: Benutzer\nnicht gefunden/]
-    ErrorRes[/Fehlermeldung: Ressource\nnicht gefunden/]
-    ErrorAvail[/Fehlermeldung: Ressource\nnicht verfügbar/]
+    ErrorUser[/Fehlermeldung: Benutzer nicht gefunden/]
+    ErrorRes[/Fehlermeldung: Ressource nicht gefunden/]
+    ErrorAvail[/Fehlermeldung: Ressource nicht verfügbar/]
 
     CreateLoan[[DB: Ausleihdatensatz einfügen]]
-    UpdateStatus[[DB: Ressourcenstatus = "verliehen"\naktualisieren]]
+    UpdateStatus[[DB: Ressourcenstatus auf "verliehen" aktualisieren]]
 
-    Success([Transaktion erfolgreich abgeschlossen])
+    Success([Transaktion erfolgreich])
     End([Ende])
 
     Start --> Eingabe --> CheckUser
@@ -29,4 +27,5 @@ flowchart TD
 
     CheckAvail -- Nein --> ErrorAvail --> End
     CheckAvail -- Ja --> CreateLoan --> UpdateStatus --> Success --> End
+
 ```
